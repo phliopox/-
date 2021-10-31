@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>object </h1>
+    객체안에는 또다른 객체도 넣을 수 있고, 함수도 넣을 수 있다.
+
+    <h2> this 변수</h2>
+    function(this), alert(this)의 this는 소속된 객체를 가리킨다
+    만약 아래의 예시에서 alert('환영합니다')대신 alert(this)가 들어갔다면
+    this는 grades를 가리킨다
+
+    <script>
+
+    let grades={
+      'list':{'정현':10, 'egoing':50},
+      'show': function(){
+        alert('환영합니다');
+      }
+    }
+    alert(grades['list']['정현']);
+    grades['show']();
+
+    let a={
+      'who':{'type':120,'랄라':500},
+      'show1':function(){
+        for(let name in this.who){
+          console.log(name,this.who[name]);
+        }
+      }
+    }
+
+    alert(a['who']['랄라']);
+    a.show1();
+
+      </script>
+  </body>
+</html>

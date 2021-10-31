@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>내부/외부 함수 - 클로저</h1>
+    <script>
+      function outter(){
+        var title = 'coding everybody';
+        function inner(){
+          alert(title);
+        }
+        inner();
+      }
+      outter();
+      // 여기서 inner는 내부함수 다른 함수 안에 존재하는 함수를 내부함수
+      // 다른 함수를 안에 포함하고 있는 함수를 외부함수라고한다
+      //내부함수에서 변수가 호출되었을 때, 내부함수 안에 존재하는 지역변수
+      //인지 확인하고 없으면 외부함수에 존재하는지 확인하고
+      //있으면 외부함수 지역변수를 끌어다 사용함.
+      //이런 매커니즘을 클로저라고 한다.
+
+    function outter2(){
+      var title2 = 'coding everybody';
+      return function inner2(){
+        alert(title2);
+      }
+    }
+      inner2=outter2();
+      inner2();
+
+      // return 은 결과를 반환하고 해당함수의 생명을 다함 ..
+      //즉 외부함수는 리턴값을 반환하고 생을 마감함
+      //inner2=outter2(); 를 입력한 순간 외부함수는 생을 마감
+      //내부함수를 마지막에 호출했을 때 이미사라진 외부함수에서
+      //선언한 변수에 접근하고있고, 이는 성공적으로 출력된다
+       //이는 클로저의 독특한 속성으로 내부함수에서 외부함수로 접근할
+       //수있고, 외부함수가 종료된 이후에도 내부함수는 외부함수에 접근할
+       //수있다.
+    </script>
+  </body>
+</html>

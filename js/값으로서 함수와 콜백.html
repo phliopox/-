@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>값으로서 함수</h1>
+    자바스크립트에서는 함수도 값이다. 즉 어떠한 변수에 담을 수 있는 성질을
+    가지고있다. 함수자체가 값이 될수있는 언어임.
+
+  var a = function(){}
+
+  a={
+    b:function(){}
+  }
+  변수에도 담을수있고 객체에도 담을 수 있다.
+  변수안에는 b라고하는 속성(property)이 담겨있는데,
+  그안에 함수가 있으면.
+  즉 객체의 속성값으로 담겨진 함수를 메소드라고 부름. \
+  짧게마하면 객체안의 함수 = 메소드
+    <script>
+      function cal(show,num){
+        return show(num);
+      }
+      function increase(num){
+        return num+1
+      }
+      function decrease(num){
+        return nunm-1
+      }
+      alert(cal(increase,1));
+      // 2출력
+      // 함수는 값이기떄문에 인자로도 쓸수있다.
+      // show( ) 변수 뒤 ()는 함수라는 것을 의미함.
+    </script>
+  </body>
+</html>

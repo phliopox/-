@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>유효범위 - 지역변수 예시</h1>
+    <script>
+      function a(){
+       var i =0;
+      }
+      for(var i = 0; i<5; i++){
+        a();
+        document.write(i);
+      }
+      //만약 function 내부에 선언된 변수 i 를 var없이 선언할 경우
+      //반복문은 멈추지않고 실행된다
+      //이유는 for 내부에 var=i가 전역변수가 되고
+      //function내부의 var가 없는 i 는 지역변수여서
+      //for반복문의 제어가 되지않기때문.
+
+
+      // (function (){}()) 함수를 바로 사용할때 쓰는 이 선언으로
+      // 전역벽수를 묶어주면 지역함수로 바꿀 수 있음.
+    </script>
+
+    <h1>유효범위</h1>
+    자바스크립트에서는 함수 function 안에서 선언된 것만이 지역변수이다.
+    예를 들면
+    for (var i=0; i<?; i++){
+      var name = 'coding everybody';
+    }
+    alert (name);
+    를 입력시 coding everbody가 출력된다.
+    for 안에서 선언된 변수 i는 전역변수이기떄문.
+
+    하지만 java나 다른 언어에서는 다름 !!
+
+    <h2>지역변수 예시 2 - 정적유효범위 </h2>
+    <script>
+      var i=5;
+      function a(){
+        var i = 10;
+        b();
+      }
+      function b(){
+        document.write(i);
+      }
+      a();
+
+      // 5 출력 된다.
+      //이유는 b 에서 변수 i는 함수 내부에 선언되 지역변수를 찾는데,
+      // function b 내부에 지역변수 i가 없으면 정의된 시점의 전역변수를
+      //찾게된다.
+      // function a 에서 b가 사용된것과 무관하게, 함수가 정의/선언된 자리에서
+      //변수를 찾음 !
+      //메소드가 정의된 시점에서 변수가 결정된다고해서 정적 유효범위라고한다.
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>h
+    <h1>prototype (원형,원래의형태)</h1>
+
+    <script>
+    function Ultra(){}
+    Ultra.prototype.ultraProp=true;
+
+    function Super(){}
+    Super.prototype=new Ultra();
+
+    function Sub(){}
+    Sub.prototype=new Super();
+
+    var a=new Sub();
+    console.log(a.ultraProp);
+    //true 출력
+    // 상속은 prototype이라는 프로퍼티(속성)이 있기에 가능한데,
+    //function 객체는 단순 객체에서 new를 만나 생성자가 되고,
+    // 이 생성자뒤의 객체는 동일한 이름을 가진 객체의 데이터,프로퍼티,메소드
+    //정보를 그대로 담는 객체를 생성한다.
+    //이 생성된 객체를 prototype안에 담아 연결시키고
+    //자식 속성으로 엄마 객체의 속성을 입력하면 prototype이 연결시켜서
+    //그대로 꺼내줌
+    //여기서 new생성자는 상속받고자하는 객체의 복제본을 만들어
+    //prototype에 건내주는 역할을 하는데,
+    //만약 new super 대신 super.prototype을 입력하면
+    //자식에게만 적용하는 기능을 입력해도 부모에게 영향이 가기때문에
+    //new를 통해 복제본을 할당해줘야함
+
+    function func(){}
+    func.prototype.name='egoing';
+    var o = new func();
+    console.log(o.name);
+    </script>
+    이렇게 prototype 프로퍼티로 상속시키는 개념을 prototype chain 이라고
+    부름
+
+    그런데 prototype chain은 아래에서부터 위로 호출된 데이터를 찾는데
+    아래쪽에서 값을 새로 정의해주면 제일 위에 저장한 데이터는
+    출력되지않는다
+
+    예시
+
+    function Ultra(){}
+    Ultra.prototype.ultraProp=true;
+
+    function Super(){}
+    Super.prototype=new Ultra();
+
+    function Sub(){}
+    Sub.prototype=new Super();
+
+    var a=new Sub();
+    o.ultraProp=1;     //여기에 이걸 추가하면
+    console.log(a.ultraProp);
+    콘솔 출력값은 1이고
+
+    function Ultra(){}
+    Ultra.prototype.ultraProp=true;
+
+    function Super(){}
+    Super.prototype=new Ultra();
+
+    function Sub(){}
+    Sub.prototype=new Super();
+    Sub.prototype.ultraProp=2; // 여기에 이걸 추가하면
+
+    var a=new Sub();
+    console.log(a.ultraProp);
+    콘솔 출력값은 2
+
+
+    function Ultra(){}
+    Ultra.prototype.ultraProp=true;
+
+    function Super(){}
+    Super.prototype=new Ultra();
+
+    function Sub(){}
+    var s=new Super();
+    s.ultraProp=3;
+    Sub.prototype= s;     //이렇게 s에 ultraProp를 속성에 넣고 s자체를 담으면
+
+    var a=new Sub();
+    console.log(a.ultraProp);
+    콘솔 출력값은 3
+  </body>
+</html>

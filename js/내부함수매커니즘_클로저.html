@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>실용적 클로저 예시-프라이빗 변수</h1>
+    <script>
+      function factory_movie(title){
+        return{
+          get_title:function(){
+            return title;
+          },
+          set_title:function(_title){
+            title=_title
+          }
+        }
+      }
+      ghost = factory_movie('Ghost in the shell');
+      matrix = factory_movie('Matrix');
+      alert(ghost.get_title());
+      alert(matrix.get_title());
+      ghost.set_title('공각기동대')
+
+      alert(ghost.get_title());
+      alert(matrix.get_title());
+      // alert(factory_movie(랄라));
+      // 내부함수 set title로 ghost의 변수를 바꿈 .
+      //하지만 이는 matrix에 반영되지않는다 .
+      //이렇게 작성하면 title이라는 변수의 값을 숨겨두고
+      //변수의 값을 set title을 통해서만 수정이 가능하다 .
+      //이때 title을 privat variable 프라이빗 변수라고함.
+
+    </script>
+    <h2> 클로저사용시 잦은 실수</h2>
+    <script>
+      var arr= []
+       for(var i =0; i<5; i++){
+        arr[i] = function(){
+        return i;
+        }
+      }
+
+      for(var ix in arr){
+        console.log(arr[ix]());
+      }
+
+      var ex = []
+        function num (){
+          for(i=0;i<5;i++){
+            return ex[i]
+          }
+        }
+        console.log(num());
+        // 뭔소릴까 ㅅ.. .ㅂ. . 
+    </script>
+  </body>
+</html>

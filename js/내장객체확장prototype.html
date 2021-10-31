@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>내장객체의 확장/ 배열 - prototype</h1>
+    <script>
+      var arr= new Array('seoul','new york','ladarkh','pusan','Tsukuba');
+      function getRandomValueFromArray(arr){
+        var index =Math.floor(arr.length*Math.random());
+        return arr[index];
+      }
+      console.log(getRandomValueFromArray(arr));
+    </script>
+  </body>
+</html>

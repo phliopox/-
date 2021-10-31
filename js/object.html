@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <h1>객체활용 - 반복문</h1>
+  객체를 가져올 때는 for in 반복문을 통해 가져온다
+  <body>
+    <script>
+      let a = { "ddd" : 10 , "www" : 20}
+      document.write(a['ddd']);
+
+      let grades = { 'egoing':10, '정현':20, '룰루':30};
+      for(key in grades){
+        document.write("key:"+key+"value:"+grades[key]+"<br />");
+      }
+
+      let self = {'혼자해보기' : 0, '될까':10};
+      for(key in self){
+        document.write(self[key]+"<br />");
+      }
+      for(key in self){
+        document.write(key+"<br />");
+      }
+
+      for(key in self){
+        document.write("<li>"+key+":"+self[key]+"</li>");
+      }
+
+      //li 태그를 입력하려면 ""안에넣고 +로 연결해야함
+
+      //여기서 for구문안 key는 변수로 굳이 key가 아니라 다른 텍스트여도 상관없다.
+
+
+      let b = ['a','f','c'];
+      for(name in b){
+        document.write(name);
+      }
+
+      let c = ['a','f','c'];
+      for(name in c){
+        document.write(c[name]);
+      }
+
+      //for in 문은 배열에서도 사용가능하다
+      //변수를 그대로 쓸경우 index값이 나오고 배열이름[변수]로 입력하면 배열이 출력된다
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    중첩 반목문 for문
+    첫번쨰 조건문 1회 실행 후 안쪽 조건문 break point까지
+    실행 , 그리고 다시 첫번째 조건문 실행 ~안쪽조건문 실행~이
+    반복된다. (첫번째 조건의 break까지.)
+
+    <script>
+      for(let i =0; i<10; i++){
+        for(let j= 0; j<10; j++){
+        document.write('coding everbody'+i+j+'<br />');
+      }
+      }
+      // 이경우 j를 담은 조건문은 100번 실행된다.
+    </script>
+  </body>
+</html>

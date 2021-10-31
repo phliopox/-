@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>함수- 전역변수/지역변수 (유효범위 scope)</h1>
+<script>
+  var vscope = 'global';
+  function fscope(){
+    var vscope='local';
+    alert(vscope);
+  }
+  fscope();
+  // local은 지역변수 global 은 전역변수이다
+  //함수 안에있는 것 - 지역
+  //함수내에 선언된 변수는 함수밖에서는 적용되지않는다.
+
+  var vscope2 ='global2';
+  function fscope2(){
+    vscope2 = 'local2';
+  }
+  fscope2();
+  alert(vscope2);
+
+// var 없이 동일한 변수를 쓰면 변수의 값을 바꾸는 것을 명령해서
+// function을 선언한 후 바뀐 변수값인 local2를 출력한다
+
+  var vscope3 ='global3';
+  function fscope3(){
+    var vscope3 = 'local3';
+  }
+  fscope2();
+  alert(vscope3);
+
+  // var 을 붙여서 변수를 선언하면, 이름은 같지만 새로운 지역변수 vscope3를 만들어서  local3로 값을 새로 주는 것으로 판단하고, 전역함수가 출력된다
+
+
+    var vscope4 ='global4';
+    function fscope4(){
+      var vscope4 = 'local4';
+      vscope4 = 'local4';
+    }
+    fscope4();
+    alert(vscope4);
+    // 이경우 global4가 출력되는데, 이유는 이미 지역변수로 vscope4를
+    //선언했기때문에 두번째 var가 없어도 지역변수를 인식하기때문.
+
+</script>
+
+  </body>
+</html>
